@@ -35,16 +35,17 @@ void DynArray<T>::make_array(unsigned int new_capacity) {
 	T* arrcop = copiyarr(this->count);
 
 	delete[] this->arr;
-	if (new_capacity > 16) {
-		this->arr = new T[new_capacity];
-		this->capacity = new_capacity;
+	if (new_capacity < 16) {
+		new_capacity = 16;
+	}
 	
-	}
-	else{
-		this->arr = new T[16];
-		this->capacity =16;
 
-	}
+
+	this->arr = new T[new_capacity];
+	this->capacity = new_capacity;
+
+
+
 
 	for (unsigned int i = 0; i < this->count; i++)
 	{
