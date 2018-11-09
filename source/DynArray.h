@@ -21,7 +21,7 @@ public:
 		return this->capacity;
 	}
 
-	T& get_item(int i);
+	T& get_item(unsigned int i);
 
 	T& operator [](int i);
 
@@ -34,17 +34,10 @@ public:
 	void delet(unsigned int i);
 
 
-	~DynArray();
-private:
-	unsigned int capacity;
-	unsigned int count;
-	T*arr;
-
-
 	T* copiyarr(unsigned int i) {
 
 		T* resarr = new T[i];
-		for (unsigned int a = 0;( a < i)&&(a<this->count); a++) {
+		for (unsigned int a = 0; (a < i) && (a < this->count); a++) {
 			resarr[a] = this->arr[a];
 		}
 
@@ -52,15 +45,25 @@ private:
 	}
 
 
-	T* copiyarr(unsigned int run, unsigned int end) 
+	T* copiyarr(unsigned int run, unsigned int end)
 	{
-		T* resarr = new T[end-run];
+		T* resarr = new T[end - run];
 		for (unsigned int a = run; (a < end) && (a < this->count); a++) {
-			resarr[a-run] = this->arr[a];
+			resarr[a - run] = this->arr[a];
 		}
 
 		return resarr;
 	}
+
+
+	~DynArray();
+private:
+	unsigned int capacity;
+	unsigned int count;
+	T*arr;
+
+
+	
 
 
 

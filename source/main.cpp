@@ -12,27 +12,18 @@ using namespace std;
 int main() {
 
 
-	DynArray<int> a(3);
-	a.make_array(100);
-
-	a.append(3);
-
-	a.append(4);
-	a.delet(0);
-	a.append(5);
-	a.insert(0, 13);
 	
-	a.append(5);
-	a.append(5);
-	for (int i = 0; i < a.get_count(); i++) {
-		cout << a[i]<<endl;
+
+	DynArray<int> a;
+	for (int i = 0; i < 20; i++)
+	{
+		a.append(i);
 	}
-
-
-
-
-
-
+	for (int i = 19; i >= 0; i--)
+	{
+		a.delet(i);
+	}
+	cout << a.get_count();
 
 
 	return 0;
